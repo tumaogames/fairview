@@ -174,7 +174,7 @@
           background-repeat: no-repeat;
           background-position: center center;
           width: 100%;
-          font-size: 24px;
+          font-size: 26px;
         }
 }
   
@@ -293,9 +293,9 @@
           </div>
           <div class="modal-body p-0">
             <div class="container-fluid">
-              <div class="row mt-4" >
-                <div class="col-10 offset-2 table-responsive pl-sm-5">
-                  <table class="table table-borderless transparent-background">
+              <div class="row mt-3 mt-sm-3 mt-md-4 mt-lg-5 mt-xl-5" >
+                <div class="col-10 table-responsive pl-sm-5 mt-3 mt-sm-3 mt-md-4 mt-lg-5 mt-xl-5">
+                  <table class="table table-borderless transparent-background mt-3">
                     <tr>
                       <th style="width: 35%;">Name:</th>
                       <td class="px-0"><span id="voter-name" class="styled-data"></span></td>
