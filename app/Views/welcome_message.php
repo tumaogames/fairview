@@ -235,7 +235,7 @@
     ?>
     <!-- Navigation bar -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <a class="navbar-brand" href="#">Barangay Gulod</a>
+      <a class="navbar-brand" href="#">Barangay Fairview</a>
       <!-- Add additional navigation items if needed -->
     </nav>
 
