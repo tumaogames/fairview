@@ -100,7 +100,7 @@
 
     .modal-body {
           height: 276.67px; /* Adjust the height */
-          background-image: url('https://unligames.com/gulod/images/Card.png');
+          background-image: url('https://unligames.com/fairview/images/Card.png');
           background-size: contain; /* Fit the background image while maintaining aspect ratio */
           background-repeat: no-repeat;
           background-position: center center;
@@ -118,7 +118,7 @@
     }
     .modal-body {
           height: 276.67px; /* Adjust the height */
-          background-image: url('https://unligames.com/gulod/images/Card.png');
+          background-image: url('https://unligames.com/fairview/images/Card.png');
           background-size: contain; /* Fit the background image while maintaining aspect ratio */
           background-repeat: no-repeat;
           background-position: center center;
@@ -135,7 +135,7 @@
     }
     .modal-body {
           height: 332.22px; /* Adjust the height */
-          background-image: url('https://unligames.com/gulod/images/Card.png');
+          background-image: url('https://unligames.com/fairview/images/Card.png');
           background-size: contain; /* Fit the background image while maintaining aspect ratio */
           background-repeat: no-repeat;
           background-position: center center;
@@ -153,7 +153,7 @@
     }
     .modal-body {
           height: 443.33px; /* Adjust the height */
-          background-image: url('https://unligames.com/gulod/images/Card.png');
+          background-image: url('https://unligames.com/fairview/images/Card.png');
           background-size: contain; /* Fit the background image while maintaining aspect ratio */
           background-repeat: no-repeat;
           background-position: center center;
@@ -169,7 +169,7 @@
     }
     .modal-body {
           height: 600px; /* Adjust the height */
-          background-image: url('https://unligames.com/gulod/images/Card.png');
+          background-image: url('https://unligames.com/fairview/images/Card.png');
           background-size: contain; /* Fit the background image while maintaining aspect ratio */
           background-repeat: no-repeat;
           background-position: center center;
