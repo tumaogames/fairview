@@ -331,7 +331,7 @@
   <!-- Query Results -->
   <div class="col">
   <?php
-    // Get the query results from the model method
+    // Get the query results from the model method.
     if (!empty($votersName)) {
         $sampleData = $votersModel->getVotersByVotersName($votersName);
         $totalItems = count($sampleData);
