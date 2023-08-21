@@ -108,6 +108,12 @@
           font-size: 8px;
           padding: 0;
         }
+    .table {
+      font-size: 9px; /* Adjust this value to your preference */
+    }
+    .table a{
+      font-size: 9px; /* Adjust this value to your preference */
+    }
 }
 
 /* Media Query for screens with a minimum width of 577px and a maximum width of 768px */
@@ -292,7 +298,7 @@
             </button>
           </div>
           <div class="modal-body p-0">
-            <div class="container-fluid">
+            <div class="container-fluid pt-sm-2 pt-xl-5">
               <div class="row mt-3 mt-sm-3 mt-md-4 mt-lg-5 mt-xl-5" >
                 <div class="col-10 table-responsive pl-sm-5 mt-3 mt-sm-3 mt-md-4 mt-lg-5 mt-xl-5">
                   <table class="table table-borderless transparent-background mt-3">

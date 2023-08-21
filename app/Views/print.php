@@ -41,7 +41,7 @@
                         echo '<div class="column bg-primary px-4">';
                         if ($voterInfo !== null) {
                             echo '<div class="row mt-4 mb-1">';
-                            echo '<div class="custom-col mt-3"><p></p></div>';
+                            echo '<div class="custom-col mt-4"><p></p></div>';
                             echo '<div class="col-3 custom-col px-1"><p>Name:</p></div>';
                             echo '<div class="col-9 custom-col"><span class="py-0" style="font-weight: bold">' . $voterInfo['voters_name'] . '</span></div>';
                             echo '</div>';
