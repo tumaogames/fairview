@@ -4,8 +4,10 @@ namespace App\Controllers;
 
 use CodeIgniter\Controller;
 use CodeIgniter\I18n\Time;
+use Config\MaintenanceMode as MaintenanceModeConfig;
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
+
 class AuthController extends Controller
 {
     private $validation;
@@ -27,6 +29,8 @@ class AuthController extends Controller
 
     public function login()
     {
+        $config = new MaintenanceModeConfig();
+        $data['maintenanceConfig'] = $config; // Pass the config to the view
         // Handle the form submission
         if ($this->request->getMethod() === 'post') {
             // Run the validation
@@ -47,7 +51,8 @@ class AuthController extends Controller
                  if ($user && password_verify($password, $user['password'])) {
                      // Successful login, set a session variable to indicate the user is logged in
                      session()->set('user_id', $user['id']);
- 
+                     // Store maintenanceConfig in the session
+                     session()->set('maintenanceConfig', $config);
                      // Redirect to a dashboard or home page after login
                      return redirect()->to('/dashboard_page');
                  } else {

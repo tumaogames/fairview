@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Controllers;
+use App\Controllers\MaintenanceMode;
 
 class Home extends BaseController
 {

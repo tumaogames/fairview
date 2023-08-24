@@ -1,3 +1,7 @@
+<?php 
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,7 +10,6 @@
     <title>Modern Dashboard with Bootstrap</title>
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="http://localhost:8080/assets/mystyle.css">
     <style>
 
         /* Sidebar styles */
@@ -219,13 +222,22 @@
             </form>
         </div>
         <div id="settings" class="content-section" style="display:none;">
-            <h1>Settings Page</h1>
-            <p>Content for Settings page goes here.</p>
+            <h1>Maintenance Mode Toggle</h1>
         </div>
-        <div id="print" class="content-section">
-            <?php
-            echo ini_get('max_execution_time');
-            ?>
+        <div id="print" class="content-section" style="display:none;">
+            <div class="mt-5">
+                <div class="row justify-content-center">
+                    <div class="col-md-4">
+                        <h2 class="pb-2">Print Card</h2>
+                        <div class="card p-4">
+                            <div class="mb-3">
+                            <label for="rangeInput" class="form-label">Enter Voter Range:</label>
+                            <input type="text" class="form-control" id="rangeInput">
+                            </div>
+                            <button class="btn btn-primary" onclick="generateLink()">Generate Card</button>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -240,19 +252,34 @@
     </script>
 
     <!-- Footer -->
-			<footer class="footer bg-light mt-4">
-			<div class="container text-center">
-				<span class="text-muted"
-				>Search Landing &copy; 2023. All rights reserved.</span
-				>
-			
-	</div>
+	<footer class="footer bg-light mt-4">
+		<div class="container text-center">
+			<span class="text-muted">Search Landing &copy; 2023. All rights reserved.</span>
+        </div>
     </footer>
 
     <!-- Bootstrap JS and Font Awesome (required for hamburger menu icon) -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js"></script>
     <script>
+        function generateLink() {
+        var rangeInput = document.getElementById('rangeInput').value;
+        var rangeArray = rangeInput.split('-');
+        
+        if (rangeArray.length === 2) {
+            var start = parseInt(rangeArray[0]);
+            var end = parseInt(rangeArray[1]);
+            
+            if (!isNaN(start) && !isNaN(end) && start <= end) {
+            var link = 'http://localhost:8080/print?voterRange=' + start + '-' + end;
+            window.open(link, '_blank');
+            } else {
+            alert('Invalid range input. Please enter a valid range.');
+            }
+        } else {
+            alert('Invalid range input format. Please use the format "1-infinity".');
+        }
+        }
         // JavaScript to handle sidebar menu click events
         document.addEventListener("DOMContentLoaded", function () {
             const sidebarLinks = document.querySelectorAll(".sidebar a");
