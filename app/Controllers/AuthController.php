@@ -30,6 +30,8 @@ class AuthController extends Controller
     {
         // Handle the form submission
         if ($this->request->getMethod() === 'post') {
+            echo 'hellow';
+            die();
             // Run the validation
             if ($this->validation->withRequest($this->request)->run()) {
                 // Validation passed, continue with login process
@@ -48,7 +50,7 @@ class AuthController extends Controller
                      // Successful login, set a session variable to indicate the user is logged in
                      session()->set('user_id', $user['id']);
                      // Redirect to a dashboard or home page after login
-                     return redirect()->to('fairview/dashboard_page');
+                     return redirect()->to('/fairview/dashboard_page');
                  } else {
                      // Invalid credentials, show an error message
                      $this->validation->setError('password', 'Invalid username or password.');
