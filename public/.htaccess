@@ -34,10 +34,7 @@ Options All -Indexes
 	RewriteRule ^([\s\S]*)$ index.php/$1 [L,NC,QSA]
 
 	RewriteBase /fairview
-
-	RewriteCond %{REQUEST_FILENAME} !-f
-	RewriteCond %{REQUEST_FILENAME} !-d
-	RewriteRule ^(.*)$ index.php/$1 [L]
+	RewriteRule (.*) public/$1 [L]
 
 	# Ensure Authorization header is passed along
 	RewriteCond %{HTTP:Authorization} .
