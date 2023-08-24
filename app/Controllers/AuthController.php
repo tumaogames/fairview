@@ -42,12 +42,14 @@ class AuthController extends Controller
  
                  // Find the user by username in the database
                  $user = $userModel->where('username', $username)->first();
+                 print_r($user);
+                 die();
                  // Check if the user exists and the password is correct
                  if ($user && password_verify($password, $user['password'])) {
                      // Successful login, set a session variable to indicate the user is logged in
                      session()->set('user_id', $user['id']);
                      // Redirect to a dashboard or home page after login
-                     return redirect()->to('/fairview/dashboard_page');
+                     return redirect()->to('/dashboard_page');
                  } else {
                      // Invalid credentials, show an error message
                      $this->validation->setError('password', 'Invalid username or password.');
