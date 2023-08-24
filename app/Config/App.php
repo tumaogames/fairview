@@ -23,7 +23,7 @@ class App extends BaseConfig
      *
      * @var string
      */
-    public $baseURL = 'https://unligames.com/';
+    public $baseURL = 'https://unligames.com/fairview/';
 
     /**
      * --------------------------------------------------------------------------

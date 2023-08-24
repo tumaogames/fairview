@@ -34,8 +34,6 @@ class AuthController extends Controller
             if ($this->validation->withRequest($this->request)->run()) {
                 // Validation passed, continue with login process
                 // You can access form data using $this->request->getPost('input_name')
-                echo 'hello';
-                die();
                 // Example: Get the username and password
                 $username = $this->request->getPost('username');
                 $password = $this->request->getPost('password');
