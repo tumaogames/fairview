@@ -42,8 +42,6 @@ class AuthController extends Controller
  
                  // Find the user by username in the database
                  $user = $userModel->where('username', $username)->first();
-                 print_r($user);
-                 die();
                  // Check if the user exists and the password is correct
                  if ($user && password_verify($password, $user['password'])) {
                      // Successful login, set a session variable to indicate the user is logged in
