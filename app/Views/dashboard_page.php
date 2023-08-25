@@ -167,7 +167,7 @@ ini_set('display_errors', 1);
                     <!-- Logout button -->
                 </div>
                 <div class="col-2">
-                <a href="/logout" class="logout">Logout</a>
+                <a href="<?= base_url() ?>/logout" class="logout">Logout</a>
                 </div>
             </div>
         </div>
