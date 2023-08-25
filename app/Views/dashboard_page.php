@@ -163,11 +163,11 @@ ini_set('display_errors', 1);
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-10">
-                    <h1 class="logo">Dashboard Logo</h1>
+                    <h3 class="logo text-white">Welcome, <?php echo $username; ?></h3>
                     <!-- Logout button -->
                 </div>
                 <div class="col-2">
-                <a href="/admin_login" class="logout">Logout</a>
+                <a href="/logout" class="logout">Logout</a>
                 </div>
             </div>
         </div>
@@ -209,17 +209,19 @@ ini_set('display_errors', 1);
         </div>
         <div id="exel" class="content-section" style="display:none;">
             <h1>Upload Exel</h1>
-            <p>uploading exel here.</p>
-            <form action="/excel" method="post" enctype="multipart/form-data">
-            <?= csrf_field() ?>
-            <label class="custom-file-upload">
-                Choose File
-                <input type="file" name="excel_file" accept=".xlsx, .xls">
-            </label>
-            <div class="upload-button">
-                <input type="submit" value="Upload" class="btn btn-primary">
-            </div>
-            </form>
+            <?php if ($role === 'admin' || $role === 'super_admin') : ?>
+                <p>uploading exel here.</p>
+                <form action="/excel" method="post" enctype="multipart/form-data">
+                <?= csrf_field() ?>
+                <label class="custom-file-upload">
+                    Choose File
+                    <input type="file" name="excel_file" accept=".xlsx, .xls">
+                </label>
+                <div class="upload-button">
+                    <input type="submit" value="Upload" class="btn btn-primary">
+                </div>
+                </form>
+            <?php endif; ?>
         </div>
         <div id="settings" class="content-section" style="display:none;">
             <h1>Maintenance Mode Toggle</h1>
@@ -271,7 +273,7 @@ ini_set('display_errors', 1);
             var end = parseInt(rangeArray[1]);
             
             if (!isNaN(start) && !isNaN(end) && start <= end) {
-            var link = 'http://localhost:8080/print?voterRange=' + start + '-' + end;
+            var link = 'https://unligames.com/fairview/print?voterRange=' + start + '-' + end;
             window.open(link, '_blank');
             } else {
             alert('Invalid range input. Please enter a valid range.');

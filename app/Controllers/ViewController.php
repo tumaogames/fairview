@@ -1,6 +1,8 @@
 <?php
 
+
 namespace App\Controllers;
+use App\Filters\AuthFilter;
 
 class ViewController extends BaseController
 {

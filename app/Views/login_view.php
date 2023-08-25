@@ -23,7 +23,7 @@
         <div class="row justify-content-center p-5">
             <div class="col-md-4">
                 <h2 class="text-center mb-4">Admin Panel Login.</h2>
-                <form id="loginForm" method="post" action="/fairview/login_user">
+                <form id="loginForm" method="post" action="/login_user">
                     <?= csrf_field() ?>
                     <div class="form-group">
                         <label for="username">Username</label>
