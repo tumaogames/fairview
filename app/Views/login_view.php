@@ -33,7 +33,7 @@
                         <label for="password">Password</label>
                         <input type="password" class="form-control" id="password" name="password" required>
                     </div>
-                    <div><a href="/admin_register">Register</a></div>
+                    <div><a href="<?= base_url() ?>/admin_register">Register</a></div>
                     <button type="submit" class="btn btn-primary btn-block">Login</button>
                 </form>
             </div>
