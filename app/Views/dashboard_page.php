@@ -273,7 +273,7 @@ ini_set('display_errors', 1);
             var end = parseInt(rangeArray[1]);
             
             if (!isNaN(start) && !isNaN(end) && start <= end) {
-            var link = 'https://unligames.com/fairview/print?voterRange=' + start + '-' + end;
+            var link = '<?= base_url() ?>/print?voterRange=' + start + '-' + end;
             window.open(link, '_blank');
             } else {
             alert('Invalid range input. Please enter a valid range.');
