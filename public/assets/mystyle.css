@@ -23,6 +23,16 @@ body {
   background-size: cover;
 }
 
+.column_back {
+  width: 3.5in;
+  height: 2in;
+  box-sizing: border-box;
+  float: left;
+  margin-right: 10px;
+  background-image: url("https://unligames.com/fairview/images/GulodBack.png"); /* Replace with your image URL */
+  background-size: cover;
+}
+
 /* Remove padding and margin from columns */
 .custom-col {
   padding: 0;

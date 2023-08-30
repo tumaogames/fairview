@@ -226,21 +226,54 @@ ini_set('display_errors', 1);
         <div id="settings" class="content-section" style="display:none;">
             <h1>Maintenance Mode Toggle</h1>
         </div>
+        
         <div id="print" class="content-section" style="display:none;">
             <div class="mt-5">
                 <div class="row justify-content-center">
-                    <div class="col-md-4">
-                        <h2 class="pb-2">Print Card</h2>
-                        <div class="card p-4">
-                            <div class="mb-3">
-                            <label for="rangeInput" class="form-label">Enter Voter Range:</label>
-                            <input type="text" class="form-control" id="rangeInput">
+                    <div class="col-md-6">
+                    <div class="card">
+                            <div class="card-header">
+                                <ul class="nav nav-tabs card-header-tabs">
+                                    <li class="nav-item">
+                                        <a class="nav-link active" data-toggle="tab" href="#tab1">Front Card</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" data-toggle="tab" href="#tab2">Back Card</a>
+                                    </li>
+                                </ul>
                             </div>
-                            <div class="mb-3">
-                            <label for="address" class="form-label">Enter Address:</label>
-                            <input type="text" class="form-control" id="address">
+                            <div class="card-body">
+                                <div class="tab-content">
+                                    <div class="tab-pane fade show active" id="tab1">
+                                        <h5 class="card-title">Print front of the card</h5>
+                                        <p class="card-text">Enter details</p>
+                                        <h2 class="pb-2">Print Card</h2>
+                                        <div class="card p-4">
+                                            <div class="mb-3">
+                                            <label for="rangeInput" class="form-label">Enter Voter Range:</label>
+                                            <input type="text" class="form-control" id="rangeInput">
+                                            </div>
+                                            <div class="mb-3">
+                                            <label for="address" class="form-label">Enter Address:</label>
+                                            <input type="text" class="form-control" id="address">
+                                            </div>
+                                            <button class="btn btn-primary" onclick="generateLink()">Generate Card</button>
+                                        </div>
+                                    </div>
+                                    <div class="tab-pane fade" id="tab2">
+                                        <h5 class="card-title">Print back of the card</h5>
+                                        <p class="card-text">Enter details</p>
+                                        <h2 class="pb-2">Print Card</h2>
+                                        <div class="card p-4">
+                                            <div class="mb-3">
+                                            <label for="rangeInputBack" class="form-label">Enter Voter Range:</label>
+                                            <input type="text" class="form-control" id="rangeInputBack">
+                                            </div>
+                                            <button class="btn btn-primary" onclick="generateLink()">Generate Card</button>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-                            <button class="btn btn-primary" onclick="generateLink()">Generate Card</button>
                         </div>
                     </div>
                 </div>
@@ -263,27 +296,47 @@ ini_set('display_errors', 1);
     </footer>
 
     <!-- Bootstrap JS and Font Awesome (required for hamburger menu icon) -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js"></script>
     <script>
         function generateLink() {
-        var rangeInput = document.getElementById('rangeInput').value;
-        var address = document.getElementById('address').value;
-        var rangeArray = rangeInput.split('-');
-        
-        if (rangeArray.length === 2) {
-            var start = parseInt(rangeArray[0]);
-            var end = parseInt(rangeArray[1]);
+            var rangeInput = document.getElementById('rangeInput').value;
+            var rangeInputBack = document.getElementById('rangeInputBack').value;
+            var address = document.getElementById('address').value;
+            var rangeArray = rangeInput.split('-');
+            var rangeArrayBack = rangeInputBack.split('-');
             
-            if (!isNaN(start) && !isNaN(end) && start <= end) {
-            var link = '<?= base_url() ?>/print?voterRange=' + start + '-' + end + '&address=' + address;
-            window.open(link, '_blank');
+            if (rangeArrayBack.length === 2 && rangeInputBack !== null) {
+                var start = parseInt(rangeArrayBack[0]);
+                var end = parseInt(rangeArrayBack[1]);
+                
+                if (!isNaN(start) && !isNaN(end) && start <= end) {
+                var link = '<?= base_url() ?>/print_back?voterRange=' + start + '-' + end + '&address=' + address;
+                window.open(link, '_blank');
+                } else {
+                alert('Invalid range input. Please enter a valid range.');
+                }
+                return;
             } else {
-            alert('Invalid range input. Please enter a valid range.');
+                alert('Invalid range input format. Please use the format "1-infinity".');
             }
-        } else {
-            alert('Invalid range input format. Please use the format "1-infinity".');
-        }
+
+            
+            if (rangeArray.length === 2) {
+                var start = parseInt(rangeArray[0]);
+                var end = parseInt(rangeArray[1]);
+                
+                if (!isNaN(start) && !isNaN(end) && start <= end) {
+                var link = '<?= base_url() ?>/print?voterRange=' + start + '-' + end + '&address=' + address;
+                window.open(link, '_blank');
+                } else {
+                alert('Invalid range input. Please enter a valid range.');
+                }
+            } else {
+                alert('Invalid range input format. Please use the format "1-infinity".');
+            }
         }
         // JavaScript to handle sidebar menu click events
         document.addEventListener("DOMContentLoaded", function () {

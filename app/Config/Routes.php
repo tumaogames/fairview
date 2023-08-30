@@ -51,6 +51,7 @@ if (config('MaintenanceMode')->enabled) {
     $routes->setDefaultController('Home');
     $routes->get('/', 'Home::index');
     $routes->add('/print', 'ViewController::print', ['filter' => 'auth']);
+    $routes->add('/print_back', 'ViewController::print_back', ['filter' => 'auth']);
 }
 
 /*
