@@ -324,7 +324,7 @@ ini_set('display_errors', 1);
             }
 
             
-            if (rangeArray.length === 2) {
+            if (rangeArray.length === 2 && rangeInput !== null) {
                 var start = parseInt(rangeArray[0]);
                 var end = parseInt(rangeArray[1]);
                 
