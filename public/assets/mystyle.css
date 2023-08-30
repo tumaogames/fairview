@@ -14,7 +14,6 @@ body {
   page-break-before: always;
 }
 .column {
-  border: 1px solid black;
   width: 3.5in;
   height: 2in;
   box-sizing: border-box;

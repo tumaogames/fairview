@@ -236,6 +236,10 @@ ini_set('display_errors', 1);
                             <label for="rangeInput" class="form-label">Enter Voter Range:</label>
                             <input type="text" class="form-control" id="rangeInput">
                             </div>
+                            <div class="mb-3">
+                            <label for="address" class="form-label">Enter Address:</label>
+                            <input type="text" class="form-control" id="address">
+                            </div>
                             <button class="btn btn-primary" onclick="generateLink()">Generate Card</button>
                         </div>
                     </div>
@@ -244,8 +248,6 @@ ini_set('display_errors', 1);
         </div>
     </div>
 
-    
-    
     <script>
         const printButton = document.getElementById('printButton');
         printButton.addEventListener('click', () => {
@@ -266,6 +268,7 @@ ini_set('display_errors', 1);
     <script>
         function generateLink() {
         var rangeInput = document.getElementById('rangeInput').value;
+        var address = document.getElementById('address').value;
         var rangeArray = rangeInput.split('-');
         
         if (rangeArray.length === 2) {
@@ -273,7 +276,7 @@ ini_set('display_errors', 1);
             var end = parseInt(rangeArray[1]);
             
             if (!isNaN(start) && !isNaN(end) && start <= end) {
-            var link = '<?= base_url() ?>/print?voterRange=' + start + '-' + end;
+            var link = '<?= base_url() ?>/print?voterRange=' + start + '-' + end + '&address=' + address;
             window.open(link, '_blank');
             } else {
             alert('Invalid range input. Please enter a valid range.');

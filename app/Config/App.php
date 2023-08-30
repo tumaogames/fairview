@@ -24,6 +24,8 @@ class App extends BaseConfig
      * @var string
      */
     public $baseURL = 'https://unligames.com/fairview';
+    //public $baseURL = 'http://localhost:8080';
+
 
     /**
      * --------------------------------------------------------------------------
