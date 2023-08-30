@@ -318,7 +318,16 @@ ini_set('display_errors', 1);
                 } else {
                 alert('Invalid range input. Please enter a valid range.');
                 }
-                return;
+            } else if (rangeArray.length === 2 && rangeInput !== null){
+                var start = parseInt(rangeArray[0]);
+                var end = parseInt(rangeArray[1]);
+                
+                if (!isNaN(start) && !isNaN(end) && start <= end) {
+                var link = '<?= base_url() ?>/print?voterRange=' + start + '-' + end + '&address=' + address;
+                window.open(link, '_blank');
+                } else {
+                alert('Invalid range input. Please enter a valid range.');
+                }
             } else {
                 alert('Invalid range input format. Please use the format "1-infinity".');
             }
