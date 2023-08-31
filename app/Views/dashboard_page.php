@@ -308,7 +308,7 @@ ini_set('display_errors', 1);
             var rangeArray = rangeInput.split('-');
             var rangeArrayBack = rangeInputBack.split('-');
             
-            if (rangeArrayBack.length === 2 && rangeInputBack !== null) {
+            if (rangeArrayBack.length === 2 && rangeInputBack !== null && address === '') {
                 var start = parseInt(rangeArrayBack[0]);
                 var end = parseInt(rangeArrayBack[1]);
                 
